@@ -1,0 +1,164 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: #f3f4f6
+}
+
+.glass {
+    background: rgba(31, 41, 55, .5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .08)
+}
+
+.array-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    gap: .5rem;
+    position: relative;
+    flex-wrap: wrap
+}
+
+.array-block {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .75rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #111827;
+    background: #9ca3af;
+    transition: all .3s ease;
+    position: relative
+}
+
+.map-grid {
+    display: grid;
+    gap: 6px
+}
+
+.map-cell {
+    padding: 6px 8px;
+    border-radius: .5rem;
+    text-align: center;
+    background: #374151;
+    border: 2px solid transparent
+}
+
+.map-cell .num {
+    font-weight: 700;
+    font-size: .8rem;
+    color: #cbd5e1
+}
+
+.map-cell .idx {
+    font-size: 1rem;
+    color: #fff
+}
+
+.code {
+    font-family: ui-monospace, Consolas, Menlo, monospace;
+    white-space: pre-wrap
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(.5) translateY(20px);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1
+    }
+}
+
+.pop {
+    animation: pop-in .4s cubic-bezier(.68, -.55, .27, 1.55)
+}
+
+@keyframes flash {
+    0%, 100% {
+        transform: scale(1);
+        background: #fde047
+    }
+
+    50% {
+        transform: scale(1.18);
+        background: #fef08a
+    }
+}
+
+.flash {
+    animation: flash .45s ease-in-out
+}
+
+/* Tree styling */
+.edge {
+    stroke: #9ca3af;
+    stroke-width: 2
+}
+
+.node circle {
+    fill: #1f2937;
+    stroke: #93c5fd;
+    stroke-width: 2
+}
+
+.node text {
+    font-size: 13px
+}
+
+.badge {
+    font-size: 12px;
+    color: #cbd5e1
+}
+
+/* Color semantics per your spec */
+.build circle {
+    stroke: #16a34a;
+    fill: #052e16;
+    stroke-width: 4
+}
+
+.query circle {
+    stroke: #16a34a;
+    stroke-width: 4
+}
+
+.inside circle {
+    stroke: #16a34a;
+    fill: #06281c;
+    stroke-width: 4
+}
+
+.update circle {
+    stroke: #facc15;
+    stroke-width: 4
+}
+
+.update2 circle {
+    stroke: #f97316;
+    stroke-width: 4
+}
+
+/* Merge prompt bubble */
+.prompt rect {
+    fill: #111827;
+    stroke: #374151;
+    rx: 10;
+    ry: 10
+}
+
+.prompt text {
+    fill: #e5e7eb;
+    font-size: 13px
+}
+
+.prompt .hl {
+    font-weight: 800;
+    fill: #fff
+}
