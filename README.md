@@ -47,7 +47,12 @@ We can optimize this significantly. The recurrence doesn't depend on the *index*
 5.  **The Algorithm:**
     * Iterate through the input array `A` from $i = 0$ to $n-1$. Let the current element be $a = A[i]$.
     * **Query:** Find the best previous subsequence by querying the Segment Tree for the maximum $dp$ value in the *value range* **`[a - K, a + K]`**. (We find the compressed indices corresponding to this value range and query those). Let this result be `max_prev_dp`.
-    * **Calculate:** The new DP value for the value $a$ is $dp[a] = 1 + \text{max\_prev\_dp}$.
+    * **Calculate:** The new DP value for the value `a` is:
+
+    $$
+    dp[a] = 1 + max\_prev\_dp
+    $$
+    
     * **Update:** Update the Segment Tree at the *compressed index* for $a$ with this new, larger value $dp[a]$.
 
 Since each query and update operation on the Segment Tree takes $O(\log n)$ time, the total time complexity is reduced to $O(n \log n)$.
