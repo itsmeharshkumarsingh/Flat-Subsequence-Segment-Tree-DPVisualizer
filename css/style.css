@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #1f2937, #111827);
+    background: linear-gradient(135deg, #1f2937, #1a253d);
     color: #f3f4f6
 }
 
@@ -119,7 +119,7 @@ body {
 
 /* Color semantics per your spec */
 .build circle {
-    stroke: #16a34a;
+    stroke: #139b45;
     fill: #052e16;
     stroke-width: 4
 }
