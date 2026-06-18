@@ -84,7 +84,7 @@ To get a local copy up and running, follow these simple steps.
 
 ## Demo
 
-![gif of the Flat Subsequence Visualizer](pfour.gif)
+![gif of the Flat Subsequence Visualizer](demo.gif)
 
 ---
 
