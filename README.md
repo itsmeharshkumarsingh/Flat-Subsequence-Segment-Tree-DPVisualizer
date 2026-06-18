@@ -47,11 +47,7 @@ We can optimize this significantly. The recurrence doesn't depend on the *index*
 5.  **The Algorithm:**
     * Iterate through the input array `A` from $i = 0$ to $n-1$. Let the current element be $a = A[i]$.
     * **Query:** Find the best previous subsequence by querying the Segment Tree for the maximum $dp$ value in the *value range* **`[a - K, a + K]`**. (We find the compressed indices corresponding to this value range and query those). Let this result be `max_prev_dp`.
-    * **Calculate:** The new DP value for the value `a` is:
-
-    $$
-    dp[a] = 1 + max\_prev\_dp
-    $$
+    * **Calculate:** The new DP value for the value `a` is: dp[a] = 1 + max\_prev\_dp
     
     * **Update:** Update the Segment Tree at the *compressed index* for $a$ with this new, larger value $dp[a]$.
 
@@ -94,7 +90,7 @@ To get a local copy up and running, follow these simple steps.
 
 ## Contributing
 
-Contributions are welcome! If you have suggestions to improve the visualizer or the algorithm explanation, feel free to fork the repo and create a pull request.
+As this is a proprietary architectural showcase for SDE interview cycles, external contributions are currently restricted. However, architectural feedback is welcome!
 
 1.  Fork the Project
 2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
