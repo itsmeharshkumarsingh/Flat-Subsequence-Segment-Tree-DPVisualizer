@@ -4,7 +4,7 @@ A web-based, interactive visualizer for the $O(n \log n)$ algorithm that solves 
 
 This tool is designed to help understand how a Segment Tree, combined with Coordinate Compression, can be used to optimize a DP recurrence relation, reducing the time complexity from $O(n^2)$ to $O(n \log n)$.
 
-## 🎯 About The Project
+## About The Project
 
 This project visualizes the solution to a common competitive programming problem:
 
@@ -14,7 +14,7 @@ This project visualizes the solution to a common competitive programming problem
 
 This visualizer provides a step-by-step breakdown of how the algorithm processes each element, performs coordinate compression, updates the DP state, and queries the Segment Tree.
 
-## ✨ Features
+## Features
 
 * **Custom Input:** Enter your own array and a `K` value.
 * **Full Animation:** Watch the algorithm build the segment tree, query, and update in real-time.
@@ -22,7 +22,7 @@ This visualizer provides a step-by-step breakdown of how the algorithm processes
 * **Segment Tree Visualization:** Watch the tree nodes (built with **SVG**) flash as they are queried and updated.
 * **Clear Explanations:** Hints and a real-time status bar explain each step of the algorithm.
 
-## 💡 The $O(n \log n)$ Algorithm Explained
+## The $O(n \log n)$ Algorithm Explained
 
 ### 1. The $O(n^2)$ DP Solution (The "Slow" Way)
 
@@ -57,7 +57,7 @@ We can optimize this significantly. The recurrence doesn't depend on the *index*
 
 Since each query and update operation on the Segment Tree takes $O(\log n)$ time, the total time complexity is reduced to $O(n \log n)$.
 
-## 🚀 Getting Started
+## Getting Started
 
 To get a local copy up and running, follow these simple steps.
 
@@ -65,21 +65,28 @@ To get a local copy up and running, follow these simple steps.
     ```sh
     git clone [https://github.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer.git](https://github.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer.git)
     ```
-2.  **Navigate to the directory:**
+2.  **Enter the project directory:**
     ```sh
     cd Flat-Subsequence-Segment-Tree-DP-Visualizer
     ```
-3.  **Run the visualizer:**
+3.  **Launch the visualizer instantly (No build pipeline required):**
     Simply open the `index.html` file in your favorite web browser.
 
-## 🛠️ Technology Stack
+
+## Architectural & Performance Decisions
+
+* **DOM-Native SVG Animations**: Instead of drawing pixels on an isolated `<canvas>` context, this project generates a responsive tree architecture using pure Scalable Vector Graphics (SVG). This architecture allows the simulation thread to target individual nodes via CSS selectors, seamlessly triggering transition flashes (`ref`, `query`, `backtrack`) using Tailwind utility classes.
+* **Zero-Dependency Core**: Developed purely with vanilla JavaScript (ES6+) and asynchronous loop schedulers. This eliminates heavy framework overhead and ensures the visualizer runs directly out of the box with an absolute minimal memory footprint.
+* **State Isolation**: The core Segment Tree module is completely decoupled from the rendering layer. The algorithm executes state updates independently, firing structured events that the visualizer layer intercepts to queue UI frames.
+
+## Technology Stack
 
 * **HTML5:** For the main page structure.
 * **TailwindCSS:** For the modern UI and styling.
 * **JavaScript (ES6+):** For the core algorithm logic and DOM manipulation.
 * **SVG (Scalable Vector Graphics):** For drawing and animating the Segment Tree.
 
-## 🖼️ Demo
+## Demo
 
 ![gif of the Flat Subsequence Visualizer](pfour.gif)
 
