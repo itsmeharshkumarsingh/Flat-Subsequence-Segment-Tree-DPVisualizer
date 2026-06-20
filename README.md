@@ -1,5 +1,7 @@
 # Flat Subsequence (Segment Tree + DP) Visualizer
 
+#### 🔗 [Live Deployment Link](https://flat-subsequence-segment-tree-dp-vi.vercel.app/)
+
 A web-based, interactive visualizer for the $O(n \log n)$ algorithm that solves the "Longest Flat Subsequence" problem using Dynamic Programming and a Segment Tree.
 
 This tool is designed to help understand how a Segment Tree, combined with Coordinate Compression, can be used to optimize a DP recurrence relation, reducing the time complexity from $O(n^2)$ to $O(n \log n)$.
