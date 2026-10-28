@@ -55,7 +55,7 @@ A zero-dependency, web-based **interactive algorithmic engine** engineered to vi
 > **The Problem:** Given an integer array $A$ of size $n$ and a bound $K$, finding the longest subsequence $S$ where adjacent or bounded elements satisfy $\vert{}A[i] - A[j]\vert{} \le K$ via standard Dynamic Programming requires scanning all prior indices $j < i$ for each element—yielding an $O(n^2)$ time complexity that times out (TLE) on competitive programming constraints ($n \le 10^5$). Furthermore, indexing DP states directly by element values fails when $A[i] \le 10^9$ due to memory limits (MLE).
 
 **The Algorithmic & Systems Solution:**
-1. **The Coordinate Compression Layer ($O(n \log n)$):** Extracts all unique values in $A$, sorts them, and maps arbitrary values up to $10^9$ into a dense, contiguous index space $[0, m-1]$ where $m \le n$.
+1. **The Coordinate Compression Layer ($O(n(\log n))$):** Extracts all unique values in $A$, sorts them, and maps arbitrary values up to $10^9$ into a dense, contiguous index space $[0, m-1]$ where $m \le n$.
 2. **The Segment Tree Acceleration Layer ($O(\log n)$ per op):** Replaces the $O(n)$ linear lookback scan with a range-maximum **Segment Tree** built over the compressed value space, querying the valid value window $[A[i] - K, A[i] + K]$ and performing point updates in $O(\log n)$ time.
 3. **The Decoupled SVG Rendering Layer (`Zero-Dependency ES6+`):** Separates tree state transitions from UI painting using an asynchronous frame scheduler that targets individual DOM-native `<svg>` nodes via CSS utility selectors without `<canvas>` pixel-redraw overhead.
 
@@ -209,7 +209,7 @@ Flat-Subsequence-Segment-Tree-DPVisualizer/
 
 ## Demo
 
-![Flat Subsequence (Segment Tree + DP) Visualizer](demo.gif)
+![Flat Subsequence (Segment Tree + DP) Visualizer](https://raw.githubusercontent.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer/main/demo.gif)
 
 ---
 
