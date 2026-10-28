@@ -1,12 +1,10 @@
 <div align="center">
 
-<<<<<<< HEAD
 # SegDPVisualizer | Flat Subsequence (Segment Tree + DP) Engine
-=======
+
 #### 🔗 [Live Deployment Link](https://flat-subsequence-segment-tree-dp-vi.vercel.app/)
 
 A web-based, interactive visualizer for the $O(n \log n)$ algorithm that solves the "Longest Flat Subsequence" problem using Dynamic Programming and a Segment Tree.
->>>>>>> 394ce04de64a3357a2da21929dc63fa2e4c7f073
 
 ### High-performance **algorithmic visualization engine**: $O(n \log n)$ Dynamic Programming + Coordinate Compression + Segment Tree Range Queries + DOM-Native SVG Rendering
 
