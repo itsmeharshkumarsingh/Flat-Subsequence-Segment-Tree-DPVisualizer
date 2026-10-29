@@ -55,7 +55,7 @@ A zero-dependency, web-based **interactive algorithmic engine** engineered to vi
 > **The Problem:** Given an integer array $A$ of size $n$ and a bound $K$, finding the longest subsequence $S$ where adjacent or bounded elements satisfy $\vert{}A[i] - A[j]\vert{} \le K$ via standard Dynamic Programming requires scanning all prior indices $j < i$ for each element—yielding an $O(n^2)$ time complexity that times out (TLE) on competitive programming constraints ($n \le 10^5$). Furthermore, indexing DP states directly by element values fails when $A[i] \le 10^9$ due to memory limits (MLE).
 
 **The Algorithmic & Systems Solution:**
-1. **The Coordinate Compression Layer ($O(n(\log n))$):** Extracts all unique values in $A$, sorts them, and maps arbitrary values up to $10^9$ into a dense, contiguous index space $[0, m-1]$ where $m \le n$.
+1. **The Coordinate Compression Layer ($O(n \log n)$ time):** Extracts all unique values in $A$, sorts them, and maps arbitrary values up to $10^9$ into a dense, contiguous index space $[0, m-1]$ where $m \le n$.
 2. **The Segment Tree Acceleration Layer ($O(\log n)$ per op):** Replaces the $O(n)$ linear lookback scan with a range-maximum **Segment Tree** built over the compressed value space, querying the valid value window $[A[i] - K, A[i] + K]$ and performing point updates in $O(\log n)$ time.
 3. **The Decoupled SVG Rendering Layer (`Zero-Dependency ES6+`):** Separates tree state transitions from UI painting using an asynchronous frame scheduler that targets individual DOM-native `<svg>` nodes via CSS utility selectors without `<canvas>` pixel-redraw overhead.
 
@@ -124,7 +124,7 @@ flowchart TD
                          Structured Animation Events
                                        │
           ┌────────────────────────────▼─────────────────────────────┐
-          │               DOM-Native SVG Rendering Layer             │
+          │                DOM-Native SVG Rendering Layer            │
           │    Node Highlighting · Edge Traversal · Live Telemetry   │
           └──────────────────────────────────────────────────────────┘
 ```
@@ -166,16 +166,16 @@ sequenceDiagram
 User submits Array A and threshold K
   │
   ├─ 1. Coordinate Compression:
-  │      ├─ Extracts unique elements from A and sorts them in ascending order
-  │      └─ Maps each unique value v to a dense index idx(v) ∈ [0, m - 1]
+  │     ├─ Extracts unique elements from A and sorts them in ascending order
+  │     └─ Maps each unique value v to a dense index idx(v) ∈ [0, m - 1]
   ├─ 2. Tree Construction:
-  │      └─ Allocates a Segment Tree of size 4m initialized to 0 and mounts SVG nodes
+  │     └─ Allocates a Segment Tree of size 4m initialized to 0 and mounts SVG nodes
   ├─ 3. Iterative DP + Segment Tree Pipeline (for each a = A[i]):
-  │      ├─ Computes valid value interval [a - K, a + K]
-  │      ├─ Binary searches compressed array to find index range [L, R]
-  │      ├─ Queries Segment Tree on [L, R] in O(log m) to get max_prev_dp
-  │      ├─ Sets dp[a] = 1 + max_prev_dp
-  │      └─ Updates Segment Tree at compressed index idx(a) with dp[a] in O(log m)
+  │     ├─ Computes valid value interval [a - K, a + K]
+  │     ├─ Binary searches compressed array to find index range [L, R]
+  │     ├─ Queries Segment Tree on [L, R] in O(log m) to get max_prev_dp
+  │     ├─ Sets dp[a] = 1 + max_prev_dp
+  │     └─ Updates Segment Tree at compressed index idx(a) with dp[a] in O(log m)
   └─ 4. Outputs optimal Longest Flat Subsequence length at the root node (tree[1])
 ```
 </details>
@@ -205,7 +205,7 @@ Flat-Subsequence-Segment-Tree-DPVisualizer/
 └── README.md                   # Architectural & mathematical documentation
 ```
 
-```
+---
 
 ## Demo
 
@@ -221,7 +221,7 @@ Because the engine is built with zero external build dependencies, it runs direc
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer.git](https://github.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer.git)
+git clone https://github.com/itsmeharshkumarsingh/Flat-Subsequence-Segment-Tree-DPVisualizer.git
 cd Flat-Subsequence-Segment-Tree-DPVisualizer
 
 # 2. Open directly in your browser
